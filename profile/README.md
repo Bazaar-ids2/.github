@@ -14,3 +14,7 @@ Para implementar el backend de los distintos microservicios se decidio utilizar 
 Se decidio que las bases de datos del sistema utilicen el sistema de gestión de bases de datos [PostgreSQL](https://www.postgresql.org/) dado que Spring Boot ofrece una integración nativa y sin necesidad de configuración del mismo.
 
 Se eligio, por la recomendación de la catedra, el uso de [React Native](https://reactnative.dev/) y [React](https://es.react.dev/) para los frontend del sistema.
+
+## Productos
+
+Se tomo la desción de que las categorias de los productos se puedan agregar dinamicamente por parte del administrador a través del endpoint `/category`, para que sea más sencillo agregar nuevas categorias.
