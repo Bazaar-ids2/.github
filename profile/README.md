@@ -17,4 +17,4 @@ Se eligio, por la recomendación de la catedra, el uso de [React Native](https:/
 
 ## Productos
 
-Se tomo la desción de que las categorias de los productos se puedan agregar dinamicamente por parte del administrador a través del endpoint `/category`, para que sea más sencillo agregar nuevas categorias.
+Se tomo la decisión de que las categorias de los productos se puedan agregar dinamicamente por parte del administrador a través del endpoint `/category`, para que sea más sencillo agregar nuevas categorias.
