@@ -9,6 +9,14 @@
 - Rodrigo Martin Rotondo Andrada 109210 rrotondo@fi.uba.ar
 - Melina Callebaut 105161 mcallebaut@fi.uba.ar
 
+## Covertura de los repositorios
+
+Products [![codecov](https://codecov.io/gh/Bazaar-ids2/Products/graph/badge.svg?token=EOQF2FGJKS)](https://codecov.io/gh/Bazaar-ids2/Products)
+
+Cart [![codecov](https://codecov.io/gh/Bazaar-ids2/Cart/graph/badge.svg?token=E1NM8DQVVG)](https://codecov.io/gh/Bazaar-ids2/Cart)
+
+User [![codecov](https://codecov.io/gh/Bazaar-ids2/User/graph/badge.svg?token=B24C5X5TIM)](https://codecov.io/gh/Bazaar-ids2/User)
+
 ## Diseño de arquitectura
 
 ![Diagrama de arquitectura](../img/diseño_arquitectura.jpg)
