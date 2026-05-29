@@ -19,6 +19,17 @@
 
 #### Notifications [![codecov](https://codecov.io/gh/Bazaar-ids2/Notifications/branch/main/graph/badge.svg?token=F4C21LAKV5)](https://codecov.io/gh/Bazaar-ids2/Notifications)
 
+
+## API Gateway
+
+El sistema utiliza **Kong Gateway** como punto único de entrada para  los clientes externos (app mobile y backoffice). Centraliza el enrutamiento, la validación de JWT, el control de cuentas bloqueadas y el rate limiting. La decisión está documentada en [ADR-001](../adrs/adr_gateway.md).
+
+
+## Diagrama de contexto
+
+(![Diagrama de contexto](../img/diagrama_de_contexto.png))
+
+
 ## Diseño de arquitectura
 
 ![Diagrama de arquitectura](../img/diseño_arquitectura.jpg)
