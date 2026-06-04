@@ -27,7 +27,7 @@ El sistema utiliza **Kong Gateway** como punto único de entrada para  los clien
 
 ## Diagrama de contexto
 
-(![Diagrama de contexto](../img/diagrama_de_contexto.png))
+![Diagrama de contexto](../img/diagrama_de_contexto.png)
 
 
 ## Diseño de arquitectura
@@ -44,6 +44,14 @@ Se decidio que las bases de datos del sistema utilicen el sistema de gestión de
 Se eligio, por la recomendación de la catedra, el uso de [React Native](https://reactnative.dev/) para el frontend de la app mobile, y [React](https://es.react.dev/) para el backoffice del sistema.
 
 Por último, en Notifications se utiliza RabbitMQ (proveedor CloudAMQP) y Redis (Upstash), para consumir notificaciones provenientes de Products y Orders, y evitar el envío de notificaciones duplicadas, respectivamente.
+
+> **Nota:** El racional completo detrás de la elección de lenguajes, frameworks, bases de datos y herramientas de mensajería para el backend se encuentra documentado en detalle en el [ADR-02: Stack Tecnológico de Servicios Backend](../adrs/adr_tecnologias.md).
+
+## Despliegue en la Nube
+El sistema utiliza **Render** como plataforma (PaaS) para desplegar todos los microservicios y el API Gateway de manera automatizada junto a los pipelines de CI/CD. La decisión y estrategia están documentadas en el [ADR-03: Despliegue en la Nube con Render](../adrs/adr_03_deploy.md).
+
+## Consistencia Distribuida
+Para manejar de forma tolerante a fallos la comunicación entre servicios (checkout, reserva de stock y MercadoPago) previniendo inconsistencias como pagos exitosos con carritos vacíos o viceversa, se documentó un esquema específico disponible en el [ADR-04: Consistencia Distribuida en Checkout y Cancelación de Órdenes](../adrs/adr_04_consistencia.md).
 
 ## Racional de Diseño Front-end
 
