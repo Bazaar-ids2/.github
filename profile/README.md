@@ -13,6 +13,8 @@
 
 #### Products [![codecov](https://codecov.io/gh/Bazaar-ids2/Products/graph/badge.svg?token=EOQF2FGJKS)](https://codecov.io/gh/Bazaar-ids2/Products)
 
+#### Orders [![codecov](https://codecov.io/github/bazaar-ids2/orders/graph/badge.svg?token=5GHQR59YP7)](https://codecov.io/github/bazaar-ids2/orders)
+
 #### Cart [![codecov](https://codecov.io/gh/Bazaar-ids2/Cart/graph/badge.svg?token=E1NM8DQVVG)](https://codecov.io/gh/Bazaar-ids2/Cart)
 
 #### User [![codecov](https://codecov.io/gh/Bazaar-ids2/User/graph/badge.svg?token=B24C5X5TIM)](https://codecov.io/gh/Bazaar-ids2/User)
