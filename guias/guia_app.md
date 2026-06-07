@@ -78,9 +78,41 @@ Desde esta pantalla podés:
 
 ---
 
+## Carrito
+
+El carrito muestra los productos seleccionados para comprar.
+
+![Carrito con productos](../img/mobile_15_carrito.jpg)
+
+Cuando el carrito está vacío se muestra un mensaje con el botón **Explorar** para ir a buscar productos. El ícono del carrito en la barra inferior muestra un badge con la cantidad de productos cuando hay items.
+
+Desde el carrito podés:
+- Ajustar la cantidad de cada producto con los botones **−** y **+**
+- Eliminar un producto tocando el ícono de tacho
+- Ver el total y la cantidad de productos
+- Tocar **Continuar** para iniciar el checkout
+
+
+---
+
 ## Checkout
 
 Al confirmar la compra desde el carrito se accede al flujo de checkout en dos pasos: **Dirección** y **Comprar**.
+
+Primero ingresar la dirección de entrega.
+
+![Dirección vacía](../img/mobile_18_entrega.jpg)
+
+Completá:
+- **Dirección** — calle y número
+- **Código postal**
+- **Provincia** — selector desplegable
+- **Localidad / Barrio** — selector desplegable
+- **Piso / Depto** — opcional
+- **Indicaciones** — opcional (timbre, referencias, etc.)
+
+Una vez completados los campos obligatorios el botón **Continuar** se habilita para pasar al paso 2.
+
 
 ![Checkout — confirmar compra](../img/mobile_09_confirmar_compra.jpg)
 
@@ -90,6 +122,16 @@ En la pantalla de confirmación podés:
 - Ver el método de pago (MercadoPago)
 - Ingresar un **cupón de descuento** si tenés uno disponible
 - Tocar **Confirmar compra** para ser redirigido a MercadoPago y completar el pago
+
+
+## Mis compras / Órdenes
+
+La sección Órdenes muestra el historial de compras filtrable por estado.
+
+Los filtros disponibles son: **Todas**, **Pendientes**, **Confirmadas**, **En preparación**, **En camino**, **Entregadas** y **Canceladas**.
+
+Cuando no hay órdenes en el estado seleccionado se muestra el mensaje "Sin órdenes".
+
 
 ---
 
@@ -124,18 +166,13 @@ Una vez completados todos los campos tocá **Publicar producto** para publicar.
 
 ---
 
-## Cupones de descuento
+## Notificaciones
 
-Como vendedor podés crear cupones de descuento para tus compradores.
+Tocá el ícono de campana en la esquina superior derecha para ver las notificaciones.
 
-![Nuevo cupón](../img/mobile_13_cupon.jpg)
+![Notificaciones](../img/mobile_16_notificaciones.jpg)
 
-Completá:
-- **Código del cupón** — letras y números, se guarda en mayúsculas (ej: SAVE20)
-- **Porcentaje de descuento** — entre 1 y 100
-- **Fecha de expiración** — en formato YYYY-MM-DD
-
-Una vista previa del cupón se actualiza en tiempo real mientras completás el formulario. Tocá **Crear cupón** para guardarlo.
+Las notificaciones incluyen alertas de stock bajo y sin stock para los productos que publicás como vendedor. Las notificaciones nuevas se marcan con un punto naranja.
 
 ---
 
@@ -153,3 +190,29 @@ Desde el perfil podés:
 - **Editar perfil** para actualizar tu información
 - **Ver perfil público** para ver cómo te ven otros usuarios
 - **Cerrar sesión**
+
+---
+
+## Mis cupones
+
+Desde el perfil accedé a **Mis cupones** para ver y gestionar los cupones creados.
+
+![Cupones vacíos](../img/mobile_17_cupones_vacios.jpg)
+
+Tocá **+ Nuevo** o **Crear cupón** para crear un cupón nuevo.
+
+---
+
+
+## Cupones de descuento
+
+Como vendedor podés crear cupones de descuento para tus compradores.
+
+![Nuevo cupón](../img/mobile_13_cupon.jpg)
+
+Completá:
+- **Código del cupón** — letras y números, se guarda en mayúsculas (ej: SAVE20)
+- **Porcentaje de descuento** — entre 1 y 100
+- **Fecha de expiración** — en formato YYYY-MM-DD
+
+Una vista previa del cupón se actualiza en tiempo real mientras completás el formulario. Tocá **Crear cupón** para guardarlo.
