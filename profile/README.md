@@ -61,7 +61,7 @@ La propuesta de Front-End para Bazaar se fundamenta en una **jerarquía visual r
 
 La **arquitectura de navegación** adopta un modelo híbrido que integra un _Tab Bar_ inferior para las secciones troncales y un acceso de identidad global en la cabecera. Esta estructura permite que los roles de comprador y vendedor coexistan sin generar fricción, asegurando que el usuario mantenga siempre el sentido de ubicación mediante indicadores de estado activo. Asimismo, se priorizó la **robustez operativa** a través de una gestión de errores proactiva; los formularios incorporan validaciones en tiempo real y estados deshabilitados para los botones de envío. Estas decisiones técnicas no solo optimizan el rendimiento al evitar peticiones inválidas al servidor, sino que consolidan la "confianza extrema" de Bazaar al garantizar que cada interacción sea clara, segura y libre de ambigüedades.
 
-# Productos
+# Products
 
 - Se tomo la decisión de que las categorias de los productos se puedan agregar dinamicamente por parte del administrador a través del endpoint `/category`, para que sea más sencillo agregar nuevas categorias.
 - La API rest se va a implementar en `JAVA` con el framework de springBoot y utilizando como servicio de base de datos `Postgress`
@@ -104,5 +104,29 @@ Para poder utilizar el proyecto es necesario tener instalado lo siguiente:
     <img width="70%" src="../img/load_test_products3.png">
 </div> 
 
+# Cart
 
+- La API rest se va a implementar en `JAVA` con el framework de springBoot y utilizando como servicio de base de datos `MongoDB`
+- Se tomo la desición de utilizar `MongoDB` como base de datos ya que su diseño orientado a objetos facilita las consultas al carrito.
+
+## Pre requisitos
+
+Para poder utilizar el proyecto es necesario tener instalado lo siguiente:
+- [OpenJDK](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) >= a 21.0.2
+- [Docker Compose](https://docs.docker.com/compose/install/) >= v2.29.7
+- [Docker](https://www.docker.com/get-started/) >= 24.0.7
+
+## Comandos
+
+- Comando para construir el servicio:
+    `docker compose up --build`
+
+- Comando para testing:
+  una vez construido el servicio ejecutar `docker exec -it cart_backend_1 mvn test`
+
+## Tests
+
+#### Covertura: [![codecov](https://codecov.io/gh/Bazaar-ids2/Cart/graph/badge.svg?token=E1NM8DQVVG)](https://codecov.io/gh/Bazaar-ids2/Cart)
+
+#### Carga: Para los test de carga utilizamos una funcionalidad de postman 
 
