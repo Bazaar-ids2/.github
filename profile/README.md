@@ -67,6 +67,7 @@ La **arquitectura de navegación** adopta un modelo híbrido que integra un _Tab
 - La API rest se va a implementar en `JAVA` con el framework de springBoot y utilizando como servicio de base de datos `Postgress`
 - Se determino que las imagenes van a ser cargadas mediante `MultipartFile` (herramienta proporcionada por springBoot) a través del endpoint `/products/images` y luego almacenadas en bucket de  [SupaBase](https://supabase.com/) (Recomendación de la catedra). Dentro de la base de datos de products NO se va a almacenar la imagen, se guarda dentro de cada product una lista con las url de donde estan alojadas.
 - Se integro el sistema de monitore [Prometheus](https://docs.spring.io/spring-boot/api/rest/actuator/prometheus.html), a traves del endpoint `/actuator/prometheus`
+- Para el manejo del stock al momento de hacer el checkout se decidio utilizar un campo, llamado checkoutStock, que indica que parte del stock se reservo para los checkouts que estan activos. Si se completa el checkout y se paga el producto, se descuenta del stock y del checkoutStock. En cambio si se cancela la compra solo se descuenta del checkoutStock. 
 
 ## Pre requisitos
 
