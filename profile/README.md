@@ -61,8 +61,48 @@ La propuesta de Front-End para Bazaar se fundamenta en una **jerarquía visual r
 
 La **arquitectura de navegación** adopta un modelo híbrido que integra un _Tab Bar_ inferior para las secciones troncales y un acceso de identidad global en la cabecera. Esta estructura permite que los roles de comprador y vendedor coexistan sin generar fricción, asegurando que el usuario mantenga siempre el sentido de ubicación mediante indicadores de estado activo. Asimismo, se priorizó la **robustez operativa** a través de una gestión de errores proactiva; los formularios incorporan validaciones en tiempo real y estados deshabilitados para los botones de envío. Estas decisiones técnicas no solo optimizan el rendimiento al evitar peticiones inválidas al servidor, sino que consolidan la "confianza extrema" de Bazaar al garantizar que cada interacción sea clara, segura y libre de ambigüedades.
 
-## Productos
+# Productos
 
 - Se tomo la decisión de que las categorias de los productos se puedan agregar dinamicamente por parte del administrador a través del endpoint `/category`, para que sea más sencillo agregar nuevas categorias.
 - La API rest se va a implementar en `JAVA` con el framework de springBoot y utilizando como servicio de base de datos `Postgress`
-- Se determino que las imagenes van a ser cargadas mediante `MultipartFile` (herramienta proporcionada por springBoot) a través del endpoint `/products/images`. Dentro del product NO se va a almacenar una referencia a donde esta ubicada la imagen, simplemente se va a guardar el nombre de la misma. Para poder obtener una imagen a partir del nombre de la misma existe el endpoint `/products/images/{filename}`.
+- Se determino que las imagenes van a ser cargadas mediante `MultipartFile` (herramienta proporcionada por springBoot) a través del endpoint `/products/images` y luego almacenadas en bucket de  [SupaBase](https://supabase.com/) (Recomendación de la catedra). Dentro de la base de datos de products NO se va a almacenar la imagen, se guarda dentro de cada product una lista con las url de donde estan alojadas.
+- Se integro el sistema de monitore [Prometheus](https://docs.spring.io/spring-boot/api/rest/actuator/prometheus.html), a traves del endpoint `/actuator/prometheus`
+
+## Pre requisitos
+
+Para poder utilizar el proyecto es necesario tener instalado lo siguiente:
+- [OpenJDK](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) >= a 21.0.2
+- [Docker Compose](https://docs.docker.com/compose/install/) >= v2.29.7
+- [Docker](https://www.docker.com/get-started/) >= 24.0.7
+
+## Comandos
+
+- Comando para construir el servicio:
+    `docker compose up --build`
+
+- Comando para testing:
+  una vez construido el servicio ejecutar `docker exec -it products_backend_1 mvn test`
+
+## Tests
+
+#### Covertura: [![codecov](https://codecov.io/gh/Bazaar-ids2/Products/graph/badge.svg?token=EOQF2FGJKS)](https://codecov.io/gh/Bazaar-ids2/Products)
+
+#### Carga: Para los test de carga utilizamos una funcionalidad de postman 
+
+- En el primer intento se utilizaron 10 usuario concurrentes sin ningun pico de carga y el sistema respondio sin ningun error
+<div align="center">
+    <img width="70%" src="../img/load_test_products1.png">
+</div> 
+
+- En el segundo intento se utilizaron 1000 usuarios concurrentes con un pico de carga largo en el tiempo. El sistema respondio bien, pero en mitad del pico de carga tuvo unos pocos errores
+<div align="center">
+    <img width="70%" src="../img/load_test_products2.png">
+</div> 
+
+- En el ultimo intento se utilizaron 10000 usuarios concurrentes con un pico de carga igual que el caso anterior. En medio del pico de carga el sistema colapso por un pequeño momento y luego se pudo recuperar.
+<div align="center">
+    <img width="70%" src="../img/load_test_products3.png">
+</div> 
+
+
+
