@@ -45,6 +45,8 @@ Se decidio que las bases de datos del sistema utilicen el sistema de gestión de
 
 Se eligio, por la recomendación de la catedra, el uso de [React Native](https://reactnative.dev/) para el frontend de la app mobile, y [React](https://es.react.dev/) para el backoffice del sistema.
 
+En un primer momento se habia decidido utilizar kubernetes para desplegar todos los microservicios. No encontramos una plataforma gratuita que no pidiera tarjeta de credito (la cual el equipo no posee) para poder utilizar, por ello se opto por utilizar Render para desplegar nuestra arquitectura.
+
 Por último, en Notifications se utiliza RabbitMQ (proveedor CloudAMQP) y Redis (Upstash), para consumir notificaciones provenientes de Products y Orders, y evitar el envío de notificaciones duplicadas, respectivamente.
 
 > **Nota:** El racional completo detrás de la elección de lenguajes, frameworks, bases de datos y herramientas de mensajería para el backend se encuentra documentado en detalle en el [ADR-02: Stack Tecnológico de Servicios Backend](../adrs/adr_tecnologias.md).
