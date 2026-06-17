@@ -69,6 +69,10 @@ La **arquitectura de navegación** adopta un modelo híbrido que integra un _Tab
 - Se integro el sistema de monitore [Prometheus](https://docs.spring.io/spring-boot/api/rest/actuator/prometheus.html), a traves del endpoint `/actuator/prometheus`
 - Para el manejo del stock al momento de hacer el checkout se decidio utilizar un campo, llamado checkoutStock, que indica que parte del stock se reservo para los checkouts que estan activos. Si se completa el checkout y se paga el producto, se descuenta del stock y del checkoutStock. En cambio si se cancela la compra solo se descuenta del checkoutStock. 
 
+## Endpoint
+
+Para poder ver todos los endpoints del micro servicio se dispuso el siguiente [Swagger](https://products-d72j.onrender.com/swagger-ui/index.html)
+
 ## Pre requisitos
 
 Para poder utilizar el proyecto es necesario tener instalado lo siguiente:
@@ -109,6 +113,10 @@ Para poder utilizar el proyecto es necesario tener instalado lo siguiente:
 
 - La API rest se va a implementar en `JAVA` con el framework de springBoot y utilizando como servicio de base de datos `MongoDB`
 - Se tomo la desición de utilizar `MongoDB` como base de datos ya que su diseño orientado a objetos facilita las consultas al carrito.
+
+## Endpoint
+
+Para poder ver todos los endpoints del micro servicio se dispuso el siguiente [Swagger](https://cart-49o2.onrender.com/swagger-ui/index.html#/)
 
 ## Pre requisitos
 
