@@ -131,6 +131,21 @@ Para poder utilizar el proyecto es necesario tener instalado lo siguiente:
 
 #### Carga: Para los test de carga utilizamos una funcionalidad de postman 
 
+- En el primer intento se utilizaron 10 usuario concurrentes sin ningun pico de carga y el sistema respondio sin ningun error
+<div align="center">
+    <img width="70%" src="../img/load_test_cart1.png">
+</div> 
+
+- En el segundo intento se utilizaron 1000 usuarios concurrentes con un pico de carga largo en el tiempo. El sistema respondio bien, pero en mitad del pico de carga tuvo un unico error
+<div align="center">
+    <img width="70%" src="../img/load_test_cart2.png">
+</div> 
+
+- En el ultimo intento se utilizaron 10000 usuarios concurrentes con un pico de carga igual que el caso anterior. Casi al final del pico de carga el sistema colapso por un pequeño momento y luego se pudo recuperar al disminuir la carga.
+<div align="center">
+    <img width="70%" src="../img/load_test_cart3.png">
+</div> 
+
 # Users API
 
 Microservicio de gestión de usuarios para la plataforma Bazaar. Construido con FastAPI + PostgreSQL.
