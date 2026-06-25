@@ -194,7 +194,18 @@ Para ver todos los endpoints del microservicio: [Swagger](https://orders-jaf8.on
 
 #### Carga
 
-Se utilizó [k6](https://k6.io/) para pruebas de carga y estrés sobre los endpoints principales del servicio (listado de órdenes, detalle de orden, creación de órdenes). Los escenarios aplican ramping de 0 a 100 usuarios virtuales concurrentes con thresholds de latencia p95 y tasa de errores.
+Se utilizó [k6](https://k6.io/) para pruebas de carga y estrés sobre los endpoints principales del servicio (listado de órdenes por comprador, detalle de orden). Los escenarios aplican ramping de 0 a 100 usuarios virtuales concurrentes con thresholds de latencia p95 y tasa de errores.
+
+| Escenario | Avg | Med | P90 | P95 | P99 | Max |
+|-----------|-----|-----|-----|-----|-----|-----|
+| `GET /orders/buyer/{id}` | 3.79s | 3.38s | 7.14s | 7.38s | 10.25s | 13.77s |
+| `GET /orders/{id}` | 3.01s | 2.54s | 6.51s | 7.0s | 9.89s | 13.42s |
+
+- **Total de requests:** 3,695
+- **Tasa de errores:** 0.00%
+- **VUs concurrentes máximos:** 176
+
+El servicio se mantiene estable bajo carga sostenida sin errores. Las latencias elevadas son esperables dado el free tier de Render (CPU compartida, 512 MB RAM).
 
 # Users API
 
