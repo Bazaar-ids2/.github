@@ -157,6 +157,45 @@ Para poder utilizar el proyecto es necesario tener instalado lo siguiente:
     <img width="70%" src="../img/load_test_cart3.png">
 </div>
 
+# Orders
+
+Microservicio de gestión de órdenes de compra. Maneja el ciclo de vida completo de una orden: creación, pago vía Mercado Pago, transiciones de estado, reembolsos y notificaciones.
+
+- La API rest se implementa en `Java` con Spring Boot y `PostgreSQL` como base de datos.
+- El pago se gestiona mediante la integración con la API de **Mercado Pago**: se crea una preferencia de pago y, al completarse el pago, el servicio recibe un webhook que confirma o rechaza la orden.
+- Las transiciones de estado siguen una máquina de estados definida (`PENDING_PAYMENT → CONFIRMED → IN_PREPARATION → SHIPPED → DELIVERED`), con flujo de cancelación y reembolso.
+- Las notificaciones de cambios de estado se publican en **RabbitMQ** para que el servicio de Notifications las consuma y las envíe como push notifications.
+- Se exponen métricas de negocio (ventas totales, tasa de cancelación, ventas por categoría) consumidas por el backoffice.
+- Se integra **Prometheus** para métricas de infraestructura vía `/actuator/prometheus`.
+
+## Diagrama de componentes
+
+![Diagrama de componentes de Orders](../img/diagrama_components_orders.png)
+
+## Endpoints
+
+Para ver todos los endpoints del microservicio: [Swagger](https://orders-jaf8.onrender.com/swagger-ui/index.html)
+
+## Pre requisitos
+
+- [OpenJDK](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) >= 17
+- [Docker Compose](https://docs.docker.com/compose/install/) >= v2.29.7
+- [Docker](https://www.docker.com/get-started/) >= 24.0.7
+
+## Comandos
+
+- Construir el servicio: `docker compose up --build`
+- Correr tests: `mvn test`
+- Tests de carga: `k6 run src/test/k6/load-tests.js`
+
+## Tests
+
+#### Cobertura: [![codecov](https://codecov.io/github/bazaar-ids2/orders/graph/badge.svg?token=5GHQR59YP7)](https://codecov.io/github/bazaar-ids2/orders)
+
+#### Carga
+
+Se utilizó [k6](https://k6.io/) para pruebas de carga y estrés sobre los endpoints principales del servicio (listado de órdenes, detalle de orden, creación de órdenes). Los escenarios aplican ramping de 0 a 100 usuarios virtuales concurrentes con thresholds de latencia p95 y tasa de errores.
+
 # Users API
 
 Microservicio de gestión de usuarios para la plataforma Bazaar. Construido con FastAPI + PostgreSQL.
